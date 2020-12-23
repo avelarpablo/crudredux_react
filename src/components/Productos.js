@@ -13,6 +13,8 @@ const Productos = () => {
 
   // Acceder al state de la app
   const productos = useSelector(state => state.productos.productos);
+  const error = useSelector(state => state.productos.error);
+  const cargando = useSelector(state => state.productos.loading);
 
   // Utilizar useDispatch y te crea una función
   const dispatch = useDispatch();
@@ -29,6 +31,16 @@ const Productos = () => {
     <Fragment>
       <h2 className="text-center my-5">Listado de Productos</h2>
 
+      { error 
+        ?
+          <p className="font-weight-bold alert alert-danger text-center mt-4">
+            Hubo un error
+          </p>
+        : null
+      }
+
+      { cargando ? <p className="text-center">Cargando...</p> : null }
+
       <table className="table table-striped">
         <thead className="bg-primary table-dark">
           <tr>
@@ -39,7 +51,7 @@ const Productos = () => {
         </thead>
         
         <tbody>
-          {productos.length === 0
+          { productos.length === 0
             ?
               "No hay productos."
             :
