@@ -28,8 +28,6 @@ export function crearNuevoProductoAction(producto) {
         'success'
       );
     } catch (error) {
-      console.log('error');
-
       // si hay un error cambiar el state
       dispatch( agregarProductoError(true) );
 
@@ -64,10 +62,31 @@ const agregarProductoError = estado => ({
 export function obtenerProductosAction() {
   return async (dispatch) => {
     dispatch( descargarProductos() );
+
+    try {
+      // Obteniendo productos de la API
+      const respuesta = await clienteAxios.get('/productos');
+
+      // Si todo sale bien, agregar al state de la app
+      dispatch( descargarProductosExito(respuesta.data) );      
+    } catch (error) {
+      // Si hay error
+      dispatch( descargarProductosError(true) );
+    }
   }
 }
 
 const descargarProductos = () => ({
   type: COMENZAR_DESCARGA_PRODUCTOS,
   payload: true
-})
+});
+
+const descargarProductosExito = productos => ({
+  type: DESCARGA_PRODUCTOS_EXITO,
+  payload: productos
+});
+
+const descargarProductosError = estado => ({
+  type: DESCARGA_PRODUCTOS_ERROR,
+  payload: estado
+});

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+// Redux
 import { useDispatch, useSelector } from 'react-redux';
 
 // Actions de Redux
