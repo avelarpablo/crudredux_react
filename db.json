@@ -69,6 +69,11 @@
       "nombre": "Hola",
       "precio": 100,
       "id": 14
+    },
+    {
+      "nombre": "Jugo de Piña",
+      "precio": 100,
+      "id": 15
     }
   ]
 }
