@@ -8,8 +8,24 @@ const initialState = {
   alerta: null
 }
 
-export default function(state = initialState, action) {
-  switch(action.type) {
+export default function alertaReducer(state = initialState, action) {
+  // Extraer atributos de action
+  const { type, payload } = action;
+
+  // Reducers
+  switch(type) {
+    case MOSTRAR_ALERTA:
+      return {
+        ...state,
+        alerta: payload
+      }
+    
+    case OCULTAR_ALERTA:
+      return {
+        ...state,
+        alerta: null
+      }
+    
     default:
       return state;
   }

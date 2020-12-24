@@ -23,7 +23,7 @@ const initialState = {
   productoeditar: null
 }
 
-export default function(state = initialState, action) {
+export default function productoReducer(state = initialState, action) {
   switch(action.type) {
     // Ambos actions son iguales
     case COMENZAR_DESCARGA_PRODUCTOS:

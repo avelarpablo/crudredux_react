@@ -25,6 +25,7 @@ const Productos = () => {
     // Mandar a llamar el action de obtener productos
     const obtenerProductos = () => dispatch(obtenerProductosAction());
     obtenerProductos();
+    // eslint-disable-next-line
   }, [])  
 
   return ( 

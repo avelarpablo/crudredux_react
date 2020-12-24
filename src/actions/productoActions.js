@@ -153,7 +153,7 @@ export function editarProductoAction(producto) {
 
     try {
       // Enviando petición a la API
-      const resultado = await clienteAxios.put(
+      await clienteAxios.put(
         `/productos/${producto.id}`,
         producto
       );

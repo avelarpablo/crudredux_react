@@ -27,13 +27,14 @@ const EditarProducto = ({ history }) => {
       history.push('/');
     }
     guardarProducto(productoeditar);
+    // eslint-disable-next-line
   }, [productoeditar])
 
   // Función para enviar el action de editar producto
   const editarProducto = producto => dispatch(editarProductoAction(producto));
 
   // Extrayendo atributos de producto
-  const { nombre, precio, id } = producto;
+  const { nombre, precio } = producto;
 
   // Función para manejar el evento onChange del formulario
   const onChangeFormulario = e => {
